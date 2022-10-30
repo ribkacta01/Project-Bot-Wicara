@@ -12,7 +12,7 @@ for link in results:
         if href.startswith('/channel') | href.startswith('/user'):
                 href = ""
         else:
-                newhref = 'https://www.facebook.com' + href + '\n'
+                newhref = 'https://www.youtube.com' + href + '\n'
                 f = open("url.txt", "a")
                 f.write(newhref)
                 f.close()
