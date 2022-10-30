@@ -1,4 +1,5 @@
 import time
+from xml.dom.minidom import Element
 import numpy as np
 import requests
 import os
@@ -18,16 +19,19 @@ def youtube_login(email,password):
 	op.add_argument('--headless')
 	op.add_argument('--disable-dev-shm-usage')
 	op.add_argument('--no-sandbox')
-	driver = webdriver.Chrome(executable_path= r'C:\Users\redi1\Desktop\Selenium-YT-Bot\chromedriver.exe')
+	driver = webdriver.Chrome(executable_path= r'C:\Program Files (x86)\chromedriver.exe')
 	driver.get('https://accounts.google.com/ServiceLogin?hl=en&continue=https%3A%2F%2Fwww.youtube.com%2Fsignin%3Fhl%3Den%26feature%3Dsign_in_button%26app%3Ddesktop%26action_handle_signin%3Dtrue%26next%3D%252F&uilel=3&passive=true&service=youtube#identifier')
 
-	driver.find_element_by_id('identifierId').send_keys(email)
-	driver.find_element_by_id('identifierNext').click()
+	driver.find_element(By.ID, "identifierId").send_keys("00011sunn@gmail.com")
 	time.sleep(3)
-	WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.CSS_SELECTOR, 'div#password input[name="password"]')))
-	driver.find_element_by_css_selector('div#password input[name="password"]').send_keys(password)
-	time.sleep(4)
-	driver.find_element_by_id('passwordNext').click()
+	driver.find_element(By.ID, "identifierNext").click()
+	time.sleep(2)
+	
+	
+	driver.find_element(By.CLASS_NAME, "whsOnd").send_keys("fullsun2901")
+	time.sleep(2)
+	driver.find_element(By.ID, "passwordNext").click()
+	
 
 	return driver
 
@@ -75,12 +79,10 @@ def comment_page(driver,urls,comment):
 def random_comment():
 # You can edit these lines=======
 	messages = [
-		'Whats up!',
+		'The Best!',
 		'Nice video!',
 		'Loved it',
 		'Best video ever',
-		'Subscribed',
-		'Wanna be frieds?',
 		'Great video'
 	]
 # ===============================
@@ -99,12 +101,12 @@ def check_exists_by_xpath(driver,xpath):
 
 if __name__ == '__main__':
 # You should edit these lines=======
-	email = 'youremail@gmail.com'
-	password = 'passxxxxxxx'
+	email = '00011sunn@gmail.com'
+	password = 'fullsun2901'
 # ==================================
 
 	urls = [
-	  'https://www.youtube.com/watch?v=Szww2_VqEKs&t',
+	  'https://www.youtube.com/watch?v=qORaYudQ7Zc',
 	]
 	
 	inp = open("url.txt","r")
