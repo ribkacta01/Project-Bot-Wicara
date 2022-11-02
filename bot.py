@@ -19,7 +19,9 @@ def youtube_login(email,password):
 	op.add_argument('--headless')
 	op.add_argument('--disable-dev-shm-usage')
 	op.add_argument('--no-sandbox')
+	
 	driver = webdriver.Chrome(executable_path= r'C:\Program Files (x86)\chromedriver.exe')
+	driver.maximize_window()
 	driver.get('https://accounts.google.com/ServiceLogin?hl=en&continue=https%3A%2F%2Fwww.youtube.com%2Fsignin%3Fhl%3Den%26feature%3Dsign_in_button%26app%3Ddesktop%26action_handle_signin%3Dtrue%26next%3D%252F&uilel=3&passive=true&service=youtube#identifier')
 
 	driver.find_element(By.ID, "identifierId").send_keys("00011sunn@gmail.com")
